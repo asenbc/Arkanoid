@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    public int durability;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +27,12 @@ public class Block : MonoBehaviour
         //Detectamos que sea la pelota el objeto contra el que hemos colisionado
         if (collision.gameObject.name == "Ball")
         {
-            //Destruimos el objeto bloque concreto contra el que ha chocado la pelota
-            Destroy(this.gameObject);
+            durability--;
+            if (durability <= 0)
+            {
+                GameManager.sharedInstance.points += 5;
+                Destroy(this.gameObject);
+            }
         }
     }
 }

@@ -17,10 +17,13 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
 
     //Referenciamos la imagen de Game Over
-    public TextMeshProUGUI gameOver, win;
+    public TextMeshProUGUI gameOver, win, pointText;
+
+    public int points;
 
     private void Update()
     {
+        pointText.text = points.ToString();
         //Controlamos las imágenes de las vidas, dependiendo de cuantas nos quedan
         //Si nos quedan menos de 3 vidas
         //if (lives < 3)
